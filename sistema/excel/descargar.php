@@ -1,6 +1,5 @@
 <?php
 
-// esto lo iso petro
 
 $filename = "productos.xls";
 
