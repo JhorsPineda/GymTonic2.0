@@ -16,7 +16,7 @@ if ($result > 0) {
   echo "ID\tDescripción\tPrecio\tExistencia\n";
 
   while ($data = mysqli_fetch_assoc($query)) {
-    echo $data['codproducto'] . "\t" . $data['descripcion'] . "\t" . $data['precio'] . "\t" . $data['existencia'] . "\n"];
+    echo $data['codproducto'] . "\t" . $data['descripcion'] . "\t" . $data['precio'] . "\t" . $data['existencia'] . "\n";
   }
 }
 
