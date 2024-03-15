@@ -1,0 +1,15 @@
+{
+    "name": "jhors/sistema",
+    "autoload": {
+        "psr-4": {
+            "Jhors\\Sistema\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JhorsPineda",
+            "email": "jhorspineda30@gmail.com"
+        }
+    ],
+    "require": {}
+}
