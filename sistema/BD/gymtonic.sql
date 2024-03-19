@@ -400,26 +400,26 @@ CREATE TABLE `proveedor` (
 --
 
 INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `direccion`, `usuario_id`) VALUES
-(1, 'FitNutri', 'Ana Martínez', 987654321, 'Avenida del Fitness, Edificio Nutrición', 2),
-(2, 'HealthyGains', 'Roberto Rodríguez', 654321987, 'Calle Saludable, Bloque Bienestar', 1),
-(3, 'Suplementos Max', 'Juan Pérez', 123456789, 'Calle Principal, Ciudad Gimnasio', 1),
-(4, 'NutriFitness', 'María Gómez', 987654321, 'Avenida Deportista, Centro Comercial Fitness', 3),
-(5, 'NutriVida', 'Luisa Martínez', 987123456, 'Avenida Atlética, Edificio Vitalidad', 2),
-(6, 'FitSupps', 'Carlos Rodríguez', 654789321, 'Carrera Deportiva, Bloque Energía', 1),
-(7, 'MusclePro', 'Ana García', 321654987, 'Plaza del Entrenamiento, Local Muscular', 3),
-(8, 'PowerNutrition', 'Pedro Sánchez', 789456123, 'Gimnasio Avenue, Torre Poderosa', 2),
-(9, 'GymFuel', 'Sofía López', 456789012, 'Calle Fitness, Casa en Forma', 1),
-(10, 'SportSupplies', 'Jorge Ramírez', 210987654, 'Estadio Street, Block Athlete', 3),
-(11, 'FitLab', 'Gabriela Castro', 987654321, 'Avenida Fitness, Edificio Saludable', 2),
-(12, 'NutriSport', 'Roberto Herrera', 654321987, 'Calle Deportiva, Bloque Nutrición', 1),
-(13, 'BodyFuel', 'Marcela Torres', 321987654, 'Plaza del Entrenamiento, Local Energético', 3),
-(14, 'ProSuplementos', 'Andrés García', 789012345, 'Gimnasio Avenue, Torre Pro', 2),
-(15, 'EcoFit', 'Laura Ramírez', 456789012, 'Calle Verde, Casa en Forma', 1),
-(16, 'VitalitySupplies', 'Daniel Sánchez', 210987654, 'Estadio Street, Block Vital', 3),
-(17, 'FitnessWorld', 'Carolina Pérez', 987654321, 'Carrera Deportiva, Edificio Salud', 2),
-(18, 'MuscleLab', 'Diego Gómez', 654321987, 'Avenida del Cuerpo, Bloque Muscular', 1),
-(19, 'PowerUp', 'Fernanda López', 321987654, 'Plaza del Fitness, Local Poder', 3),
-(20, 'SportLife', 'José Martínez', 789012345, 'Gimnasio Avenue, Torre Deporte', 2);
+(1, 'FitNutri', '20123456789', 987654321, 'Avenida del Fitness, Edificio Nutrición', 2),
+(2, 'HealthyGains', '30198765432', 654321987, 'Calle Saludable, Bloque Bienestar', 1),
+(3, 'Suplementos Max', '40187654321', 123456789, 'Calle Principal, Ciudad Gimnasio', 1),
+(4, 'NutriFitness', '50176543210', 987654321, 'Avenida Deportista, Centro Comercial Fitness', 3),
+(5, 'NutriVida', '60165432109', 987123456, 'Avenida Atlética, Edificio Vitalidad', 2),
+(6, 'FitSupps', '70154321098', 654789321, 'Carrera Deportiva, Bloque Energía', 1),
+(7, 'MusclePro', '80143210987', 321654987, 'Plaza del Entrenamiento, Local Muscular', 3),
+(8, 'PowerNutrition', '90132109876', 789456123, 'Gimnasio Avenue, Torre Poderosa', 2),
+(9, 'GymFuel', '10121098765', 456789012, 'Calle Fitness, Casa en Forma', 1),
+(10, 'SportSupplies', '11110987654', 210987654, 'Estadio Street, Block Athlete', 3),
+(11, 'FitLab', '12109876543', 987654321, 'Avenida Fitness, Edificio Saludable', 2),
+(12, 'NutriSport', '13198765432', 654321987, 'Calle Deportiva, Bloque Nutrición', 1),
+(13, 'BodyFuel', '14187654321', 321987654, 'Plaza del Entrenamiento, Local Energético', 3),
+(14, 'ProSuplementos', '15176543210', 789012345, 'Gimnasio Avenue, Torre Pro', 2),
+(15, 'EcoFit', '16165432109', 456789012, 'Calle Verde, Casa en Forma', 1),
+(16, 'VitalitySupplies', '17154321098', 210987654, 'Estadio Street, Block Vital', 3),
+(17, 'FitnessWorld', '18143210987', 987654321, 'Carrera Deportiva, Edificio Salud', 2),
+(18, 'MuscleLab', '19132109876', 654321987, 'Avenida del Cuerpo, Bloque Muscular', 1),
+(19, 'PowerUp', '20121098765', 321987654, 'Plaza del Fitness, Local Poder', 3),
+(20, 'SportLife', '21110987654', 789012345, 'Gimnasio Avenue, Torre Deporte', 2);
 
 -- --------------------------------------------------------
 
