@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 02, 2024 at 06:22 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 12-03-2024 a las 16:01:16
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,12 +18,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gymtonic`
+-- Base de datos: `gymtonic`
 --
 
 DELIMITER $$
 --
--- Procedures
+-- Procedimientos
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizar_precio_producto` (IN `n_cantidad` INT, IN `n_precio` DECIMAL(10,2), IN `codigo` INT)   BEGIN
 DECLARE nueva_existencia int;
@@ -120,7 +120,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -133,16 +133,24 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `cliente`
+-- Volcado de datos para la tabla `cliente`
 --
 
 INSERT INTO `cliente` (`idcliente`, `documento`, `nombre`, `telefono`, `direccion`, `usuario_id`) VALUES
-(1, 123545, 'Pubico en general', 925491523, 'Bogotá', 1);
+(1, 123545, 'Pubico en general', 925491523, 'Bogotá', 1),
+(2, 79808506, 'Yobany Poveda', 2147483647, 'calle 4', 1),
+(3, 53415591, 'dora gaitan', 73737373, 'calle 5', 1),
+(4, 1006156652, 'juan perez', 2147483647, 'calle 6', 1),
+(5, 54546464, 'maria', 646464664, 'calle 7', 1),
+(6, 57575849, 'maria hernadez', 4223233, 'calle 9', 1),
+(7, 66566566, 'maria fula', 747575, 'calle 8', 2),
+(8, 2147483647, 'Yobany alavarez', 2147483647, 'calle 11', 2),
+(9, 656566565, 'juan pereS', 636363, 'calle 11', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `configuracion`
+-- Estructura de tabla para la tabla `configuracion`
 --
 
 CREATE TABLE `configuracion` (
@@ -157,16 +165,16 @@ CREATE TABLE `configuracion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `configuracion`
+-- Volcado de datos para la tabla `configuracion`
 --
 
 INSERT INTO `configuracion` (`id`, `documento`, `nombre`, `razon_social`, `telefono`, `email`, `direccion`, `igv`) VALUES
-(1, 2580, 'Jhors', 'Jhors S.A', 925491523, 'jhorspineda30@gmail.com', 'Bogotá - Colombia', 1.18);
+(1, 2580, 'GYM & TONIC', 'GYM & TONIC S.A', 925491523, 'gym&toniccol@gmail.com', 'Bogotá - Colombia', 1.19);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detallefactura`
+-- Estructura de tabla para la tabla `detallefactura`
 --
 
 CREATE TABLE `detallefactura` (
@@ -177,10 +185,26 @@ CREATE TABLE `detallefactura` (
   `precio_venta` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `detallefactura`
+--
+
+INSERT INTO `detallefactura` (`correlativo`, `nofactura`, `codproducto`, `cantidad`, `precio_venta`) VALUES
+(1, 1, 5, 6, 280.00),
+(2, 2, 67, 12, 700.00),
+(3, 3, 6, 5, 120.00),
+(4, 3, 4, 2, 150.00),
+(6, 4, 56, 16, 700.00),
+(7, 5, 78, 6, 650.00),
+(8, 6, 45, 10, 1000.00),
+(9, 7, 45, 6, 1000.00),
+(10, 8, 7, 16, 90.00),
+(11, 8, 5, 1, 280.00);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_temp`
+-- Estructura de tabla para la tabla `detalle_temp`
 --
 
 CREATE TABLE `detalle_temp` (
@@ -194,7 +218,7 @@ CREATE TABLE `detalle_temp` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entradas`
+-- Estructura de tabla para la tabla `entradas`
 --
 
 CREATE TABLE `entradas` (
@@ -209,7 +233,7 @@ CREATE TABLE `entradas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factura`
+-- Estructura de tabla para la tabla `factura`
 --
 
 CREATE TABLE `factura` (
@@ -221,10 +245,24 @@ CREATE TABLE `factura` (
   `estado` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`nofactura`, `fecha`, `usuario`, `codcliente`, `totalfactura`, `estado`) VALUES
+(1, '2024-03-12 07:44:39', 1, 2, 1680.00, 1),
+(2, '2024-03-12 08:01:31', 1, 3, 8400.00, 1),
+(3, '2024-03-12 08:13:18', 1, 4, 900.00, 1),
+(4, '2024-03-12 08:23:11', 1, 5, 11200.00, 1),
+(5, '2024-03-12 08:24:40', 1, 6, 3900.00, 1),
+(6, '2024-03-12 08:34:22', 2, 7, 10000.00, 1),
+(7, '2024-03-12 08:44:19', 2, 8, 6000.00, 1),
+(8, '2024-03-12 09:37:00', 2, 1, 1720.00, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 CREATE TABLE `producto` (
@@ -237,17 +275,17 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `producto`
+-- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`codproducto`, `descripcion`, `proveedor`, `precio`, `existencia`, `usuario_id`) VALUES
 (1, 'Proteína en polvo de suero de leche (whey protein)', 1, 429.00, 49, 2),
 (2, 'Proteína en polvo de caseína', 1, 327.90, 79, 1),
 (3, 'Proteína en polvo de soja', 1, 80.00, 0, 1),
-(4, 'Proteína en polvo de huevo', 3, 150.00, 5, 1),
-(5, 'Proteína en polvo vegana', 2, 280.00, 30, 2),
-(6, 'BCAA (aminoácidos de cadena ramificada) en polvo', 4, 120.00, 45, 3),
-(7, 'Glutamina en polvo', 4, 90.00, 25, 3),
+(4, 'Proteína en polvo de huevo', 3, 150.00, 3, 1),
+(5, 'Proteína en polvo vegana', 2, 280.00, 23, 2),
+(6, 'BCAA (aminoácidos de cadena ramificada) en polvo', 4, 120.00, 40, 3),
+(7, 'Glutamina en polvo', 4, 90.00, 9, 3),
 (8, 'Creatina monohidratada', 1, 140.00, 60, 2),
 (9, 'Creatina en formato líquido', 3, 130.00, 15, 1),
 (10, 'Creatina en cápsulas', 1, 90.00, 40, 2),
@@ -285,7 +323,7 @@ INSERT INTO `producto` (`codproducto`, `descripcion`, `proveedor`, `precio`, `ex
 (42, 'Suplementos de yodo', 2, 750.00, 35, 2),
 (43, 'Suplementos de fibra', 1, 300.00, 90, 3),
 (44, 'Suplementos de glucosamina y condroitina', 3, 900.00, 25, 1),
-(45, 'Suplementos de MSM (metilsulfonilmetano)', 4, 1000.00, 20, 2),
+(45, 'Suplementos de MSM (metilsulfonilmetano)', 4, 1000.00, 4, 2),
 (46, 'Suplementos de ácido hialurónico para las articulaciones', 2, 1200.00, 15, 3),
 (47, 'Suplementos de colina', 1, 700.00, 40, 1),
 (48, 'Suplementos de inositol', 3, 800.00, 35, 2),
@@ -296,7 +334,7 @@ INSERT INTO `producto` (`codproducto`, `descripcion`, `proveedor`, `precio`, `ex
 (53, 'Suplementos de aceite de cártamo', 4, 400.00, 80, 1),
 (54, 'Suplementos de aceite de onagra', 2, 550.00, 55, 2),
 (55, 'Suplementos de aceite de borraja', 1, 600.00, 45, 3),
-(56, 'Suplementos de aceite de semilla de uva', 3, 700.00, 40, 1),
+(56, 'Suplementos de aceite de semilla de uva', 3, 700.00, 24, 1),
 (57, 'Suplementos de aceite de alga', 4, 650.00, 35, 2),
 (58, 'Suplementos de L-arginina', 2, 1000.00, 25, 3),
 (59, 'Suplementos de L-citrulina', 1, 1100.00, 20, 1),
@@ -307,7 +345,7 @@ INSERT INTO `producto` (`codproducto`, `descripcion`, `proveedor`, `precio`, `ex
 (64, 'Suplementos de sulfato de glucosamina', 3, 750.00, 25, 3),
 (65, 'Suplementos de HMB (beta-hidroxi-beta-metilbutirato)', 4, 1300.00, 10, 1),
 (66, 'Suplementos de aceite de pescado omega-3', 1, 600.00, 50, 2),
-(67, 'Suplementos de aceite de hígado de bacalao', 2, 700.00, 45, 3),
+(67, 'Suplementos de aceite de hígado de bacalao', 2, 700.00, 33, 3),
 (68, 'Suplementos de aceite de linaza', 3, 500.00, 60, 1),
 (69, 'Suplementos de aceite de cártamo', 4, 400.00, 70, 2),
 (70, 'Suplementos de aceite de borraja', 1, 600.00, 45, 3),
@@ -318,7 +356,7 @@ INSERT INTO `producto` (`codproducto`, `descripcion`, `proveedor`, `precio`, `ex
 (75, 'Suplementos de aceite de argán', 2, 700.00, 40, 2),
 (76, 'Suplementos de aceite de rosa mosqueta', 3, 800.00, 35, 3),
 (77, 'Suplementos de aceite de avellana', 4, 750.00, 30, 1),
-(78, 'Suplementos de aceite de nuez', 1, 650.00, 40, 2),
+(78, 'Suplementos de aceite de nuez', 1, 650.00, 34, 2),
 (79, 'Suplementos de aceite de almendra', 2, 600.00, 45, 3),
 (80, 'Suplementos de aceite de macadamia', 3, 700.00, 35, 1),
 (81, 'Suplementos de aceite de marula', 4, 850.00, 25, 2),
@@ -345,7 +383,7 @@ INSERT INTO `producto` (`codproducto`, `descripcion`, `proveedor`, `precio`, `ex
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proveedor`
+-- Estructura de tabla para la tabla `proveedor`
 --
 
 CREATE TABLE `proveedor` (
@@ -358,7 +396,7 @@ CREATE TABLE `proveedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `proveedor`
+-- Volcado de datos para la tabla `proveedor`
 --
 
 INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `direccion`, `usuario_id`) VALUES
@@ -386,7 +424,7 @@ INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
 CREATE TABLE `rol` (
@@ -395,7 +433,7 @@ CREATE TABLE `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
 INSERT INTO `rol` (`idrol`, `rol`) VALUES
@@ -405,7 +443,7 @@ INSERT INTO `rol` (`idrol`, `rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -418,7 +456,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol`) VALUES
@@ -426,129 +464,129 @@ INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol
 (2, 'Nicolas', 'nico@gmail.com', 'Nicolas', '4118af4d1a8ac07d93f11ce4f3bf1f58', 2);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `cliente`
+-- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`idcliente`);
 
 --
--- Indexes for table `configuracion`
+-- Indices de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detallefactura`
+-- Indices de la tabla `detallefactura`
 --
 ALTER TABLE `detallefactura`
   ADD PRIMARY KEY (`correlativo`);
 
 --
--- Indexes for table `detalle_temp`
+-- Indices de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
   ADD PRIMARY KEY (`correlativo`);
 
 --
--- Indexes for table `entradas`
+-- Indices de la tabla `entradas`
 --
 ALTER TABLE `entradas`
   ADD PRIMARY KEY (`correlativo`);
 
 --
--- Indexes for table `factura`
+-- Indices de la tabla `factura`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`nofactura`);
 
 --
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`codproducto`);
 
 --
--- Indexes for table `proveedor`
+-- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`codproveedor`);
 
 --
--- Indexes for table `rol`
+-- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`idrol`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `cliente`
+-- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `configuracion`
+-- AUTO_INCREMENT de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `detallefactura`
+-- AUTO_INCREMENT de la tabla `detallefactura`
 --
 ALTER TABLE `detallefactura`
-  MODIFY `correlativo` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `correlativo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `detalle_temp`
+-- AUTO_INCREMENT de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
-  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `entradas`
+-- AUTO_INCREMENT de la tabla `entradas`
 --
 ALTER TABLE `entradas`
   MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `factura`
+-- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `nofactura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `nofactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `producto`
+-- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `codproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT for table `proveedor`
+-- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   MODIFY `codproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `rol`
+-- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
   MODIFY `idrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
