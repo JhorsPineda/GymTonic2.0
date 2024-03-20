@@ -1,4 +1,7 @@
-﻿<?php include_once "includes/header.php"; ?>
+﻿<?php
+ob_start();
+include_once "includes/header.php"; 
+?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
