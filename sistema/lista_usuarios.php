@@ -1,7 +1,6 @@
 ﻿<?php
 ob_start();
 include_once "includes/header.php"; 
-session_start();
 ?>
 
 <!-- Begin Page Content -->
