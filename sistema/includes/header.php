@@ -34,7 +34,7 @@ if ($result_data > 0) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
